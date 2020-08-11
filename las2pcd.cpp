@@ -68,7 +68,7 @@ int main (int argc, char *argv[])
 	    	cloud.points[i].z = (reader.GetPoint().GetZ());
 		
 		// get intensity information
-		cloud.points[i].intensity = (reader.GetPoint().GetIntensity());
+		//cloud.points[i].intensity = (reader.GetPoint().GetIntensity());
 				
 		// get RGB information. Note: in liblas, the "Color" class can be accessed from within the "Point" class, thus the triple gets
 		r1 = (reader.GetPoint().GetColor().GetRed());
@@ -89,7 +89,8 @@ int main (int argc, char *argv[])
 	}
   
 	// Allows output file to be set:
-	pcl::io::savePCDFileASCII (argv[2], cloud);
+	//pcl::io::savePCDFileASCII (argv[2], cloud);
+	pcl::io::savePCDFileBinaryCompressed (argv[2], cloud);
   
 	std::cerr << "Saved " << cloud.points.size () << " data points to pointcloud.pcd." << std::endl;
 
